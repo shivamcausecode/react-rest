@@ -1,0 +1,42 @@
+<html>
+<head>
+<script src="https://unpkg.com/react@15/dist/react.min.js"> </script><script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js">
+</script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+    class Hello extends React.Component {
+
+        constructor() {
+            super();
+            this.state = {
+                message: 'This message is coming from the state',
+            };
+            this.updateMessage = this.updateMessage.bind(this);
+        }
+
+        updateMessage() {
+            this.setState({
+                message: 'Message has been updated form the function call.',
+            });
+        }
+        
+    render() {
+        return (
+            <div>
+            <h1>Hello React State! {this.state.message}</h1>
+            <button onClick={this.updateMessage}> Click to see updateMessage!</button>
+            </div>
+        )
+    }
+}
+
+ReactDOM.render(
+    <Hello/>, 
+    document.getElementById("root")
+);
+    </script>
+</body>
+</html>
